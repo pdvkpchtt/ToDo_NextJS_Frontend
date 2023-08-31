@@ -1,9 +1,7 @@
 "use client";
 
 import Image from "@/node_modules/next/image";
-// @ts-ignore
 import Avatar from "react-avatar";
-// @ts-ignore
 import { MagnifyingGlassIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 
 const Header = () => {
