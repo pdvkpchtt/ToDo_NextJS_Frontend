@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, useRef } from "react";
+import { FormEvent, Fragment, useRef } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import Image from "next/image";
 
@@ -17,19 +17,25 @@ function Modal() {
     state.closeModal,
   ]);
 
-  const [newTaskInput, setTaskInput, image, setImage] = useBoardStore(
-    (state) => [
+  const [newTaskInput, setTaskInput, image, setImage, addTask, newTaskType] =
+    useBoardStore((state) => [
       state.newTaskInput,
       state.setTaskInput,
       state.image,
       state.setImage,
-    ]
-  );
+      state.addTask,
+      state.newTaskType,
+    ]);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!newTaskInput) return;
+
+    addTask(newTaskInput, newTaskType, image);
+
+    setImage(null);
+    closeModal();
   };
 
   return (
