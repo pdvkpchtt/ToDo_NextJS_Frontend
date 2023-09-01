@@ -5,6 +5,7 @@ import { Dialog, Transition } from "@headlessui/react";
 
 import { useModalStore } from "@/store/ModalStore";
 import { useBoardStore } from "@/store/BoardStore";
+import TaskTypeRadioGroup from "./TaskTypeRadioGroup";
 
 function Modal() {
   const [isOpen, closeModal] = useModalStore((state) => [
@@ -47,7 +48,7 @@ function Modal() {
               <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                 <Dialog.Title
                   as="h3"
-                  className="text-lg font-medium leading-6 text-gray-900 pb-2"
+                  className="text-lg font-medium select-none leading-6 text-gray-900 pb-2"
                 >
                   Add a Task
                 </Dialog.Title>
@@ -58,11 +59,11 @@ function Modal() {
                     value={newTaskInput}
                     onChange={(e) => setTaskInput(e.target.value)}
                     placeholder="Enter a task..."
-                    className="w-full border border-gray-300 rounded-md outline-none p-5"
+                    className="w-full border border-gray-300 rounded-md outline-none p-5 placeholder:select-none"
                   />
                 </div>
 
-                {/* <TaskTypeRadioGroup /> */}
+                <TaskTypeRadioGroup />
               </Dialog.Panel>
             </Transition.Child>
           </div>
