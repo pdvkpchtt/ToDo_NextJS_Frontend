@@ -7,7 +7,7 @@ import { MagnifyingGlassIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 const Header = () => {
   return (
     <header>
-      <div className="flex flex-col md:flex-row items-center p-5 bg-gray-500/10 rounded-b-2xl">
+      <div className="flex flex-col md:flex-row items-center p-5 bg-gray-500/10 rounded-b-2xl mb-[24px]">
         {/* gradient */}
         <div className="absolute top-0 left-0 w-full h-96 bg-gradient-to-br from-pink-400 to-[#0055d1] rounded-md filter blur-3xl opacity-50 -z-50" />
 
@@ -17,7 +17,7 @@ const Header = () => {
           alt="Logo"
           width={300}
           height={100}
-          className="w-44 md:w-56 pb-10 md:pb-0 object-contain"
+          className="w-44 md:w-56 pb-10 md:pb-0 object-contain select-none"
         />
 
         <div className="flex items-center space-x-5 flex-1 justify-end w-full">
@@ -27,7 +27,7 @@ const Header = () => {
             <input
               type="text"
               placeholder="Search"
-              className="flex-1 outline-none p-2"
+              className="flex-1 outline-none p-2 placeholder:select-none"
             />
             <button type="submit" hidden>
               Search
@@ -35,7 +35,13 @@ const Header = () => {
           </form>
 
           {/* avatar */}
-          <Avatar name="Tony Montana" round color="#0055d1" size="50" />
+          <Avatar
+            name="Tony Montana"
+            round
+            color="#0055d1"
+            size="50"
+            className="select-none"
+          />
         </div>
       </div>
     </header>
